@@ -14,6 +14,10 @@
 		6ADAAA2129458F400066E028 /* MandaProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA2029458F400066E028 /* MandaProjectTests.swift */; };
 		6ADAAA2B29458F400066E028 /* MandaProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA2A29458F400066E028 /* MandaProjectUITests.swift */; };
 		6ADAAA2D29458F400066E028 /* MandaProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA2C29458F400066E028 /* MandaProjectUITestsLaunchTests.swift */; };
+		6ADAAA3F2945A21E0066E028 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA3D2945A21E0066E028 /* Model.xcdatamodeld */; };
+		6ADAAA412945AD960066E028 /* DefaultLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA402945AD960066E028 /* DefaultLayout.swift */; };
+		6ADAAA432945B9B10066E028 /* CreateGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA422945B9B10066E028 /* CreateGoal.swift */; };
+		6ADAAA472945CCC70066E028 /* CreateSubGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA462945CCC70066E028 /* CreateSubGoal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		6ADAAA2629458F400066E028 /* MandaProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MandaProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ADAAA2A29458F400066E028 /* MandaProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandaProjectUITests.swift; sourceTree = "<group>"; };
 		6ADAAA2C29458F400066E028 /* MandaProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandaProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6ADAAA3E2945A21E0066E028 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		6ADAAA402945AD960066E028 /* DefaultLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLayout.swift; sourceTree = "<group>"; };
+		6ADAAA422945B9B10066E028 /* CreateGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoal.swift; sourceTree = "<group>"; };
+		6ADAAA462945CCC70066E028 /* CreateSubGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSubGoal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 		6ADAAA0329458F3E0066E028 = {
 			isa = PBXGroup;
 			children = (
+				6ADAAA3D2945A21E0066E028 /* Model.xcdatamodeld */,
 				6ADAAA0E29458F3E0066E028 /* MandaProject */,
 				6ADAAA1F29458F400066E028 /* MandaProjectTests */,
 				6ADAAA2929458F400066E028 /* MandaProjectUITests */,
@@ -94,8 +103,11 @@
 		6ADAAA0E29458F3E0066E028 /* MandaProject */ = {
 			isa = PBXGroup;
 			children = (
+				6ADAAA3C29459A4D0066E028 /* Model */,
+				6ADAAA3B29459A3C0066E028 /* Controllers */,
+				6ADAAA3A29459A310066E028 /* Resources */,
+				6ADAAA392945958E0066E028 /* Views */,
 				6ADAAA0F29458F3E0066E028 /* MandaProjectApp.swift */,
-				6ADAAA1129458F3E0066E028 /* ContentView.swift */,
 				6ADAAA1329458F400066E028 /* Assets.xcassets */,
 				6ADAAA1529458F400066E028 /* Preview Content */,
 			);
@@ -125,6 +137,38 @@
 				6ADAAA2C29458F400066E028 /* MandaProjectUITestsLaunchTests.swift */,
 			);
 			path = MandaProjectUITests;
+			sourceTree = "<group>";
+		};
+		6ADAAA392945958E0066E028 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6ADAAA1129458F3E0066E028 /* ContentView.swift */,
+				6ADAAA402945AD960066E028 /* DefaultLayout.swift */,
+				6ADAAA422945B9B10066E028 /* CreateGoal.swift */,
+				6ADAAA462945CCC70066E028 /* CreateSubGoal.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6ADAAA3A29459A310066E028 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6ADAAA3B29459A3C0066E028 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6ADAAA3C29459A4D0066E028 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +302,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ADAAA1229458F3E0066E028 /* ContentView.swift in Sources */,
+				6ADAAA472945CCC70066E028 /* CreateSubGoal.swift in Sources */,
+				6ADAAA432945B9B10066E028 /* CreateGoal.swift in Sources */,
+				6ADAAA412945AD960066E028 /* DefaultLayout.swift in Sources */,
 				6ADAAA1029458F3E0066E028 /* MandaProjectApp.swift in Sources */,
+				6ADAAA3F2945A21E0066E028 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +625,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6ADAAA3D2945A21E0066E028 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6ADAAA3E2945A21E0066E028 /* Model.xcdatamodel */,
+			);
+			currentVersion = 6ADAAA3E2945A21E0066E028 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6ADAAA0429458F3E0066E028 /* Project object */;
 }
