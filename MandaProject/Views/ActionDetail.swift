@@ -1,5 +1,5 @@
 //
-//  CreateSubGoal.swift
+//  ActionDetail.swift
 //  MandaProject
 //
 //  Created by 박유진 on 2022/12/11.
@@ -7,28 +7,36 @@
 
 import SwiftUI
 
-struct CreateSubGoal: View {
+struct ActionDetail: View {
     @Environment(\.dismiss) private var dismiss
-    @State var subGoal: String = ""
-
+    @State var action: String = ""
+    @State var due: Date = Date()
+    
+    @State var dates: [String] = ["월", "화", "수", "목", "금", "토", "일"]
+    @State var selectedDates: [String] = []
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
-                Text("세부 목표 만들기")
+                Text("액션 타이틀")
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
                 
-                
                 VStack(spacing: 20.0){
-                    TextField("목표 달성을 위한 세부 목표를 적어주세요.", text: $subGoal)
+                    TextField("세부 목표 달성을 위한 액션을 적어주세요.", text: $action)
                         .padding(.all, 12.0)
                         .background(Color.white)
                         .foregroundColor(Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
+                    DatePicker(selection: $due, in: Date()..., displayedComponents: .date) {
+                        Text("액션 종료일")
+                        
+                    }
                 }.padding(.all, 18.0)
-                    .clipShape(RoundedRectangle(cornerRadius: 4))
-                    .background(Color(.systemGray6))
+                .clipShape(RoundedRectangle(cornerRadius: 4))
+                .background(Color(.systemGray6))
+                
                 Spacer()
                 HStack() {
                     Button(action: {dismiss()}, label: {
@@ -61,8 +69,8 @@ struct CreateSubGoal: View {
     }
 }
 
-struct CreateSubGoal_Previews: PreviewProvider {
+struct ActionDetail_Previews: PreviewProvider {
     static var previews: some View {
-        CreateSubGoal()
+        ActionDetail()
     }
 }

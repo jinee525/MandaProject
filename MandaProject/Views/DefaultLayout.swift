@@ -26,6 +26,7 @@ struct DefaultLayout: View {
                 Button(action: {}){
                     Text("\(buttonText)")
                         .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity)
                 }
                 .frame(width: 120.0, height: 40.0)
                 .background(Color("MainColor"))

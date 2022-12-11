@@ -17,7 +17,10 @@
 		6ADAAA3F2945A21E0066E028 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA3D2945A21E0066E028 /* Model.xcdatamodeld */; };
 		6ADAAA412945AD960066E028 /* DefaultLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA402945AD960066E028 /* DefaultLayout.swift */; };
 		6ADAAA432945B9B10066E028 /* CreateGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA422945B9B10066E028 /* CreateGoal.swift */; };
-		6ADAAA472945CCC70066E028 /* CreateSubGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA462945CCC70066E028 /* CreateSubGoal.swift */; };
+		6ADAAA472945CCC70066E028 /* SubGoalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA462945CCC70066E028 /* SubGoalList.swift */; };
+		6ADAAA492945FCCD0066E028 /* ActionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA482945FCCD0066E028 /* ActionList.swift */; };
+		6ADAAA4B294608740066E028 /* CreateSubGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA4A294608740066E028 /* CreateSubGoal.swift */; };
+		6ADAAA4D29461D1A0066E028 /* ActionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA4C29461D1A0066E028 /* ActionDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +54,10 @@
 		6ADAAA3E2945A21E0066E028 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		6ADAAA402945AD960066E028 /* DefaultLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLayout.swift; sourceTree = "<group>"; };
 		6ADAAA422945B9B10066E028 /* CreateGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoal.swift; sourceTree = "<group>"; };
-		6ADAAA462945CCC70066E028 /* CreateSubGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSubGoal.swift; sourceTree = "<group>"; };
+		6ADAAA462945CCC70066E028 /* SubGoalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubGoalList.swift; sourceTree = "<group>"; };
+		6ADAAA482945FCCD0066E028 /* ActionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionList.swift; sourceTree = "<group>"; };
+		6ADAAA4A294608740066E028 /* CreateSubGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSubGoal.swift; sourceTree = "<group>"; };
+		6ADAAA4C29461D1A0066E028 /* ActionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +151,10 @@
 				6ADAAA1129458F3E0066E028 /* ContentView.swift */,
 				6ADAAA402945AD960066E028 /* DefaultLayout.swift */,
 				6ADAAA422945B9B10066E028 /* CreateGoal.swift */,
-				6ADAAA462945CCC70066E028 /* CreateSubGoal.swift */,
+				6ADAAA462945CCC70066E028 /* SubGoalList.swift */,
+				6ADAAA482945FCCD0066E028 /* ActionList.swift */,
+				6ADAAA4A294608740066E028 /* CreateSubGoal.swift */,
+				6ADAAA4C29461D1A0066E028 /* ActionDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,11 +311,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ADAAA1229458F3E0066E028 /* ContentView.swift in Sources */,
-				6ADAAA472945CCC70066E028 /* CreateSubGoal.swift in Sources */,
+				6ADAAA4D29461D1A0066E028 /* ActionDetail.swift in Sources */,
+				6ADAAA472945CCC70066E028 /* SubGoalList.swift in Sources */,
+				6ADAAA492945FCCD0066E028 /* ActionList.swift in Sources */,
 				6ADAAA432945B9B10066E028 /* CreateGoal.swift in Sources */,
 				6ADAAA412945AD960066E028 /* DefaultLayout.swift in Sources */,
 				6ADAAA1029458F3E0066E028 /* MandaProjectApp.swift in Sources */,
 				6ADAAA3F2945A21E0066E028 /* Model.xcdatamodeld in Sources */,
+				6ADAAA4B294608740066E028 /* CreateSubGoal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

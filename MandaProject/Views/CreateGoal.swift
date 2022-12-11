@@ -19,7 +19,7 @@ struct CreateGoal: View {
                 .padding(.top, 60.0)
             
             
-            VStack(alignment: .leading,spacing: 20.0){
+            VStack(spacing: 20.0){
                 TextField("이루고 싶은 목표를 적어주세요.", text: $goal)
                     .padding(.all, 12.0)
                     .background(Color.white)
@@ -36,6 +36,7 @@ struct CreateGoal: View {
                 Button(action: {}){
                     Text("저장")
                         .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity)
                 }
                 .padding(0.0)
                 .frame(width: 120.0, height: 40.0)
@@ -45,8 +46,7 @@ struct CreateGoal: View {
         }
         .frame(
             maxWidth: .infinity,
-            maxHeight: .infinity,
-            alignment: .topLeading
+            maxHeight: .infinity
         )
         .padding([.leading, .trailing], 20.0)
     }
