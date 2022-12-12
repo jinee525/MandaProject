@@ -13,12 +13,12 @@ struct ActionDetail: View {
     @State var due: Date = Date()
     
     @State var dates: [String] = ["월", "화", "수", "목", "금", "토", "일"]
-    @State var selectedDates: [String] = []
+    @State var selectedDates: [Int] = [0,0,1,0,0,1,0]
     
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
-                Text("액션 타이틀")
+                Text("반복 액션")
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
@@ -33,6 +33,25 @@ struct ActionDetail: View {
                         Text("액션 종료일")
                         
                     }
+                    HStack{
+                        ForEach(0..<7){id in
+                            if selectedDates[id] == 1 {
+                                Button(action: {selectedDates[id] = 0 }, label:{Text(dates[id])})
+                                    .frame(width: 36.0, height: 36.0)
+                                    .background(Color("MainColor"))
+                                    .clipShape(Circle())
+                                    .foregroundColor(Color.white)
+                            } else {
+                                Button(action: {selectedDates[id] = 1 }, label:{Text(dates[id])})
+                                    .frame(width: 36.0, height: 36.0)
+                                    .background(Color.white)
+                                    .clipShape(Circle())
+                                .foregroundColor(Color.black)
+
+                            }
+                        }
+                    }
+                    
                 }.padding(.all, 18.0)
                 .clipShape(RoundedRectangle(cornerRadius: 4))
                 .background(Color(.systemGray6))
