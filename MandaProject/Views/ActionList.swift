@@ -67,12 +67,13 @@ struct ActionList: View {
                     .background(Color(.systemGray3))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
-                    Button(action: {}){
+                    NavigationLink {
+                        ActionDetail().navigationBarHidden(true)
+                    } label: {
                         Text("추가하기")
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity)
                     }
-                    .padding(0.0)
                     .frame(width: 120.0, height: 40.0)
                     .background(Color("MainColor"))
                     .clipShape(RoundedRectangle(cornerRadius: 4))

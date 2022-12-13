@@ -41,7 +41,7 @@ struct CreateSubGoal: View {
                     .background(Color(.systemGray3))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
-                    Button(action: {}){
+                    Button(action: {dismiss()}){
                         Text("저장하기")
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity)

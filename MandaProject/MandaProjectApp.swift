@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
+// root scene
 @main
 struct MandaProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

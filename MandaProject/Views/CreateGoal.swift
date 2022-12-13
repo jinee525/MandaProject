@@ -12,43 +12,46 @@ struct CreateGoal: View {
     @State var due: Date = Date()
     
     var body: some View {
-        VStack(spacing: 20.0) {
-            Text("목표 설정하기")
-                .font(.title2)
-                .foregroundColor(Color.black)
-                .padding(.top, 60.0)
-            
-            
-            VStack(spacing: 20.0){
-                TextField("이루고 싶은 목표를 적어주세요.", text: $goal)
-                    .padding(.all, 12.0)
-                    .background(Color.white)
+        NavigationView {
+            VStack(spacing: 20.0) {
+                Text("목표 설정하기")
+                    .font(.title2)
                     .foregroundColor(Color.black)
+                    .padding(.top, 60.0)
+                
+                
+                VStack(spacing: 20.0){
+                    TextField("이루고 싶은 목표를 적어주세요.", text: $goal)
+                        .padding(.all, 12.0)
+                        .background(Color.white)
+                        .foregroundColor(Color.black)
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                    DatePicker(selection: $due, in: Date()..., displayedComponents: .date) {
+                        Text("목표 달성일")
+                    }
+                }.padding(.all, 18.0)
                     .clipShape(RoundedRectangle(cornerRadius: 4))
-                DatePicker(selection: $due, in: Date()..., displayedComponents: .date) {
-                    Text("목표 달성일")
+                    .background(Color(.systemGray6))
+                Spacer()
+                HStack() {
+                    NavigationLink {
+                        SubGoalList().navigationBarHidden(true)
+                    } label: {
+                        Text("저장")
+                            .foregroundColor(Color.white)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .frame(width: 120.0, height: 40.0)
+                    .background(Color("MainColor"))
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
-            }.padding(.all, 18.0)
-            .clipShape(RoundedRectangle(cornerRadius: 4))
-            .background(Color(.systemGray6))
-            Spacer()
-            HStack() {
-                Button(action: {}){
-                    Text("저장")
-                        .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity)
-                }
-                .padding(0.0)
-                .frame(width: 120.0, height: 40.0)
-                .background(Color("MainColor"))
-                .clipShape(RoundedRectangle(cornerRadius: 4))
             }
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity
+            )
+            .padding([.leading, .trailing], 20.0)
         }
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: .infinity
-        )
-        .padding([.leading, .trailing], 20.0)
     }
 }
 

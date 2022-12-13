@@ -29,10 +29,6 @@ struct ActionDetail: View {
                         .background(Color.white)
                         .foregroundColor(Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
-                    DatePicker(selection: $due, in: Date()..., displayedComponents: .date) {
-                        Text("액션 종료일")
-                        
-                    }
                     HStack{
                         ForEach(0..<7){id in
                             if selectedDates[id] == 1 {
@@ -51,7 +47,10 @@ struct ActionDetail: View {
                             }
                         }
                     }
-                    
+                    DatePicker(selection: $due, in: Date()..., displayedComponents: .date) {
+                        Text("종료일")
+                        
+                    }
                 }.padding(.all, 18.0)
                 .clipShape(RoundedRectangle(cornerRadius: 4))
                 .background(Color(.systemGray6))
@@ -68,7 +67,7 @@ struct ActionDetail: View {
                     .background(Color(.systemGray3))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
-                    Button(action: {}){
+                    Button(action: {dismiss()}){
                         Text("저장하기")
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity)
