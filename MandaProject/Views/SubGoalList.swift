@@ -6,24 +6,12 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SubGoalList: View {
-    @State var subGoal: String = ""
-
-    var subGoalList: [SubGoalItem] = {
-        var list: [SubGoalItem] = []
-        list.append(SubGoalItem(title: "세부 목표 1"))
-        list.append(SubGoalItem(title: "세부 목표 2"))
-        list.append(SubGoalItem(title: "세부 목표 3"))
-        list.append(SubGoalItem(title: "세부 목표 4"))
-        list.append(SubGoalItem(title: "세부 목표 5"))
-        list.append(SubGoalItem(title: "세부 목표 6"))
-        list.append(SubGoalItem(title: "세부 목표 7"))
-        list.append(SubGoalItem(title: "세부 목표 8"))
-        list.append(SubGoalItem(title: "세부 목표 9"))
-        list.append(SubGoalItem(title: "세부 목표 10"))
-        return list
-    }()
+    @Environment(\.managedObjectContext) var managedObjContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "objectID", ascending: true)]) var subGoal: FetchedResults<SubGoal>
+    
     
     var body: some View {
         
@@ -33,28 +21,33 @@ struct SubGoalList: View {
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
-                ScrollView{
-                    VStack(spacing: 20.0){
-                        ForEach(subGoalList) { subGoal in
-                            NavigationLink {
-                                ActionList()
-                                    .navigationBarHidden(true)
-                            } label: {
-                                Text(subGoal.title)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.all, 12.0)
-                                    .background(Color.white)
-                                    .foregroundColor(Color.black)
-                                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                if subGoal.count == 0 {
+                    Text("세부 목표가 없어요!")
+                } else {
+                    ScrollView{
+                        VStack(spacing: 20.0){
+                            ForEach(subGoal) { subGoal in
+                                NavigationLink {
+                                    ActionList(subGoalId: subGoal.id!,subGoalTitle: subGoal.title!, subGoal:subGoal)
+                                        .navigationBarHidden(true)
+                                } label: {
+                                    Text(subGoal.title!)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.all, 12.0)
+                                        .background(Color.white)
+                                        .foregroundColor(Color.black)
+                                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                                }
                             }
-                        }
-                    }.padding(.all, 18.0)
-                        .clipShape(RoundedRectangle(cornerRadius: 4))
-                        .background(Color(.systemGray6))
+                        }.padding(.all, 18.0)
+                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                            .background(Color(.systemGray6))
+                    }
+                    .frame(height:500)
                 }
-                .frame(height:500)
-                
+               
                 Spacer()
+                
                 HStack() {
                     NavigationLink {
                         CreateSubGoal().navigationBarHidden(true)

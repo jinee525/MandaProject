@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CreateSubGoal: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.managedObjectContext) var managedObjContext
+
     @State var subGoal: String = ""
 
     var body: some View {
@@ -41,7 +43,10 @@ struct CreateSubGoal: View {
                     .background(Color(.systemGray3))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
-                    Button(action: {dismiss()}){
+                    Button(action: {
+                        DataController().addSubGoal(title: subGoal, context: managedObjContext)
+                        dismiss()
+                    }){
                         Text("저장하기")
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity)

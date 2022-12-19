@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ActionDetail: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.managedObjectContext) var managedObjContext
+
     @State var action: String = ""
     @State var due: Date = Date()
     
@@ -67,7 +69,9 @@ struct ActionDetail: View {
                     .background(Color(.systemGray3))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
-                    Button(action: {dismiss()}){
+                    Button(action: {
+                        DataController().addAction(title: action, due: due, repeatDay: selectedDates.map { String($0) }, context: managedObjContext)
+                        dismiss()}){
                         Text("저장하기")
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity)

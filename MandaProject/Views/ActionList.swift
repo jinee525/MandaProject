@@ -6,53 +6,48 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ActionList: View {
     @Environment(\.dismiss) private var dismiss
-    @State var action: String = ""
+    @FetchRequest(sortDescriptors: []) var action: FetchedResults<Action>
 
-    var actionList: [ActionItem] = {
-        var list: [ActionItem] = []
-        list.append(ActionItem(title: "action 1"))
-        list.append(ActionItem(title: "action 2"))
-        list.append(ActionItem(title: "action 3"))
-        list.append(ActionItem(title: "action 4"))
-        list.append(ActionItem(title: "action 5"))
-        list.append(ActionItem(title: "action 6"))
-        list.append(ActionItem(title: "action 7"))
-        list.append(ActionItem(title: "action 8"))
-        list.append(ActionItem(title: "action 9"))
-        list.append(ActionItem(title: "action 10"))
-        return list
-    }()
+    var subGoalId: UUID
+    var subGoalTitle: String
+    var subGoal: SubGoal
     
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
-                Text("액션 리스트")
+                Text(subGoal.title!)
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
-                ScrollView{
-                    VStack(spacing: 20.0){
-                        ForEach(actionList) { action in
-                            NavigationLink {
-                                ActionDetail()
-                                    .navigationBarHidden(true)
-                            } label: {
-                                Text(action.title)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.all, 12.0)
-                                    .background(Color.white)
-                                    .foregroundColor(Color.black)
-                                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                
+                if action.count == 0 {
+                    Text("할 일이 없어요!")
+                } else {
+                    ScrollView{
+                        VStack(spacing: 20.0){
+                            ForEach(action) { action in
+                                NavigationLink {
+                                    ActionDetail()
+                                        .navigationBarHidden(true)
+                                } label: {
+                                    Text(action.title!)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.all, 12.0)
+                                        .background(Color.white)
+                                        .foregroundColor(Color.black)
+                                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                                }
                             }
-                        }
-                    }.padding(.all, 18.0)
-                        .clipShape(RoundedRectangle(cornerRadius: 4))
-                        .background(Color(.systemGray6))
+                        }.padding(.all, 18.0)
+                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                            .background(Color(.systemGray6))
+                    }
+                    .frame(height:500)
                 }
-                .frame(height:500)
                 
                 Spacer()
                 
@@ -102,6 +97,6 @@ struct ActionList: View {
 
 struct ActionList_Previews: PreviewProvider {
     static var previews: some View {
-        ActionList()
+        ActionList(subGoalId:UUID(),subGoalTitle: "NULL")
     }
 }
