@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct CreateGoal: View {
-    @State var goal: String = ""
-    @State var due: Date = Date()
+    @Environment(\.managedObjectContext) var managedObjContext
+
     
+    @State var title: String = ""
+    @State var due: Date = Date()
+    @State var tag:Int? = nil
+
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
@@ -21,7 +25,7 @@ struct CreateGoal: View {
                 
                 
                 VStack(spacing: 20.0){
-                    TextField("이루고 싶은 목표를 적어주세요.", text: $goal)
+                    TextField("이루고 싶은 목표를 적어주세요.", text: $title)
                         .padding(.all, 12.0)
                         .background(Color.white)
                         .foregroundColor(Color.black)
@@ -33,17 +37,19 @@ struct CreateGoal: View {
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     .background(Color(.systemGray6))
                 Spacer()
+                
                 HStack() {
-                    NavigationLink {
-                        SubGoalList().navigationBarHidden(true)
-                    } label: {
+                    NavigationLink(destination:  SubGoalList().navigationBarHidden(true).onAppear {
+                            DataController().addGoal(title: title, due: due, context: managedObjContext)
+                        }, label: {
                         Text("저장")
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity)
-                    }
+                        } )
                     .frame(width: 120.0, height: 40.0)
                     .background(Color("MainColor"))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
+                    
                 }
             }
             .frame(
@@ -59,4 +65,5 @@ struct CreateGoal_Previews: PreviewProvider {
     static var previews: some View {
         CreateGoal()
     }
+    
 }

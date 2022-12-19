@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct MainView: View {
+    @Environment(\.managedObjectContext) var managedObjContext
+    @FetchRequest(sortDescriptors: []) var goal: FetchedResults<Goal>
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
@@ -21,7 +25,7 @@ struct MainView: View {
                     NavigationLink {
                         CreateGoal().navigationBarHidden(true)
                     } label: {
-                        Text("GO!")
+                        Text("GOAL")
                             .foregroundColor(Color.white)
                             .frame(maxWidth: .infinity)
                     }
@@ -40,6 +44,7 @@ struct MainView: View {
 }
 
 struct MainView_Previews: PreviewProvider {
+    
     static var previews: some View {
         MainView()
     }
