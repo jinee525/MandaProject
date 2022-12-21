@@ -1,21 +1,29 @@
 //
-//  ActionDetail.swift
+//  CreateAction.swift
 //  MandaProject
 //
-//  Created by 박유진 on 2022/12/11.
+//  Created by 박유진 on 2022/12/21.
 //
 
 import SwiftUI
 
-struct ActionDetail: View {
-    @Environment(\.dismiss) private var dismiss
+struct CreateAction: View {
+    @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var managedObjContext
+   
+    var subGoal: FetchedResults<SubGoal>.Element
 
-    @State var action: String = ""
+    @State var title: String = ""
     @State var due: Date = Date()
     
     @State var dates: [String] = ["월", "화", "수", "목", "금", "토", "일"]
-    @State var selectedDates: [Int] = [0,0,1,0,0,1,0]
+    @State var selectedDates: [Int] = [0,0,0,0,0,0,0]
+    
+    // for control field text focuesd
+    enum Field: Hashable {
+      case title
+    }
+    @FocusState private var focusField: Field?
     
     var body: some View {
         NavigationView {
@@ -26,11 +34,12 @@ struct ActionDetail: View {
                     .padding(.top, 60.0)
                 
                 VStack(spacing: 20.0){
-                    TextField("세부 목표 달성을 위한 액션을 적어주세요.", text: $action)
+                    TextField("세부 목표 달성을 위한 액션을 적어주세요.", text: $title)
                         .padding(.all, 12.0)
                         .background(Color.white)
                         .foregroundColor(Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
+                        .focused($focusField, equals: .title)
                     HStack{
                         ForEach(0..<7){id in
                             if selectedDates[id] == 1 {
@@ -70,7 +79,7 @@ struct ActionDetail: View {
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
                     Button(action: {
-                        DataController().addAction(title: action, due: due, repeatDay: selectedDates.map { String($0) }, context: managedObjContext)
+                        DataController().addAction(title: title, due: due, repeatDay: "\(selectedDates)", subGoal: subGoal , context: managedObjContext)
                         dismiss()}){
                         Text("저장하기")
                             .foregroundColor(Color.white)
@@ -87,12 +96,12 @@ struct ActionDetail: View {
                 maxHeight: .infinity
             )
             .padding([.leading, .trailing], 20.0)
+            .onAppear {
+                focusField = .title
+            }
         }
     }
 }
 
-struct ActionDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        ActionDetail()
-    }
-}
+
+

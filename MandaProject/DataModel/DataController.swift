@@ -51,25 +51,28 @@ class DataController: ObservableObject {
         save(context: context)
     }
     
-    func editGoal(subGoal: SubGoal, title: String, context: NSManagedObjectContext){
+    func editSubGoal(subGoal: SubGoal, title: String, context: NSManagedObjectContext){
         subGoal.title = title
         
         save(context: context)
     }
     
-    func addAction(title: String, due: Date, repeatDay: [String], subGoal: SubGoal, context: NSManagedObjectContext){
+    func addAction(title: String, due: Date, repeatDay: String, subGoal: SubGoal, context: NSManagedObjectContext){
         let action = Action(context: context)
         action.id = UUID()
+        action.due = due
+        action.repeatDay = repeatDay
         action.title = title
-        action.subGoal = SubGoal
+        action.subGoal = subGoal
+        
         
         save(context: context)
     }
     
     func editAction(action: Action, title: String, due: Date, repeatDay: String, context: NSManagedObjectContext){
-        action.title = title
         action.due = due
         action.repeatDay = repeatDay
+        action.title = title
         
         save(context: context)
     }

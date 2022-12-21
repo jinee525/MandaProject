@@ -15,6 +15,12 @@ struct CreateGoal: View {
     @State var due: Date = Date()
     @State var tag:Int? = nil
 
+    // for control field text focuesd
+    enum Field: Hashable {
+      case title
+    }
+    @FocusState private var focusField: Field?
+
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
@@ -22,20 +28,20 @@ struct CreateGoal: View {
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
-                
-                
                 VStack(spacing: 20.0){
                     TextField("이루고 싶은 목표를 적어주세요.", text: $title)
                         .padding(.all, 12.0)
                         .background(Color.white)
                         .foregroundColor(Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
+                        .focused($focusField, equals: .title)
                     DatePicker(selection: $due, in: Date()..., displayedComponents: .date) {
                         Text("목표 달성일")
                     }
                 }.padding(.all, 18.0)
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     .background(Color(.systemGray6))
+                
                 Spacer()
                 
                 HStack() {
@@ -57,6 +63,9 @@ struct CreateGoal: View {
                 maxHeight: .infinity
             )
             .padding([.leading, .trailing], 20.0)
+            .onAppear {
+                focusField = .title
+            }
         }
     }
 }

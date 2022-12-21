@@ -8,13 +8,13 @@
 import SwiftUI
 import CoreData
 
-struct ActionList: View {
-    @Environment(\.dismiss) private var dismiss
-    @FetchRequest(sortDescriptors: []) var action: FetchedResults<Action>
 
-    var subGoalId: UUID
-    var subGoalTitle: String
-    var subGoal: SubGoal
+
+struct ActionList: View {
+    @Environment(\.dismiss) var dismiss
+    @FetchRequest(sortDescriptors: []) var action: FetchedResults<Action>
+        
+    var subGoal: FetchedResults<SubGoal>.Element
     
     var body: some View {
         NavigationView {
@@ -23,7 +23,7 @@ struct ActionList: View {
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
-                
+                    
                 if action.count == 0 {
                     Text("할 일이 없어요!")
                 } else {
@@ -31,7 +31,7 @@ struct ActionList: View {
                         VStack(spacing: 20.0){
                             ForEach(action) { action in
                                 NavigationLink {
-                                    ActionDetail()
+                                    EditAction(action: action)
                                         .navigationBarHidden(true)
                                 } label: {
                                     Text(action.title!)
@@ -63,7 +63,7 @@ struct ActionList: View {
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
                     NavigationLink {
-                        ActionDetail().navigationBarHidden(true)
+                        CreateAction(subGoal: subGoal).navigationBarHidden(true)
                     } label: {
                         Text("추가하기")
                             .foregroundColor(Color.white)
@@ -94,9 +94,3 @@ struct ActionList: View {
     }
 }
 
-
-struct ActionList_Previews: PreviewProvider {
-    static var previews: some View {
-        ActionList(subGoalId:UUID(),subGoalTitle: "NULL")
-    }
-}

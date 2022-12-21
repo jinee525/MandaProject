@@ -11,8 +11,14 @@ struct CreateSubGoal: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) var managedObjContext
 
-    @State var subGoal: String = ""
+    @State var title: String = ""
 
+    // for control field text focuesd
+    enum Field: Hashable {
+      case title
+    }
+    @FocusState private var focusField: Field?
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
@@ -23,11 +29,12 @@ struct CreateSubGoal: View {
                 
                 
                 VStack(spacing: 20.0){
-                    TextField("목표 달성을 위한 세부 목표를 적어주세요.", text: $subGoal)
+                    TextField("목표 달성을 위한 세부 목표를 적어주세요.", text: $title)
                         .padding(.all, 12.0)
                         .background(Color.white)
                         .foregroundColor(Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
+                        .focused($focusField, equals: .title)
                 }.padding(.all, 18.0)
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     .background(Color(.systemGray6))
@@ -44,7 +51,7 @@ struct CreateSubGoal: View {
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
                     Button(action: {
-                        DataController().addSubGoal(title: subGoal, context: managedObjContext)
+                        DataController().addSubGoal(title: title, context: managedObjContext)
                         dismiss()
                     }){
                         Text("저장하기")
@@ -62,6 +69,9 @@ struct CreateSubGoal: View {
                 maxHeight: .infinity
             )
             .padding([.leading, .trailing], 20.0)
+            .onAppear {
+                focusField = .title
+            }
         }
     }
 }

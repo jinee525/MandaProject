@@ -10,7 +10,7 @@ import CoreData
 
 struct SubGoalList: View {
     @Environment(\.managedObjectContext) var managedObjContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "objectID", ascending: true)]) var subGoal: FetchedResults<SubGoal>
+    @FetchRequest(sortDescriptors: []) var subGoal: FetchedResults<SubGoal>
     
     
     var body: some View {
@@ -28,7 +28,7 @@ struct SubGoalList: View {
                         VStack(spacing: 20.0){
                             ForEach(subGoal) { subGoal in
                                 NavigationLink {
-                                    ActionList(subGoalId: subGoal.id!,subGoalTitle: subGoal.title!, subGoal:subGoal)
+                                    ActionList(subGoal:subGoal)
                                         .navigationBarHidden(true)
                                 } label: {
                                     Text(subGoal.title!)
