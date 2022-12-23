@@ -45,7 +45,6 @@ class DataController: ObservableObject {
     
     func addSubGoal(title: String, context: NSManagedObjectContext){
         let subGoal = SubGoal(context: context)
-        subGoal.id = UUID()
         subGoal.title = title
         
         save(context: context)
@@ -59,7 +58,6 @@ class DataController: ObservableObject {
     
     func addAction(title: String, due: Date, repeatDay: String, subGoal: SubGoal, context: NSManagedObjectContext){
         let action = Action(context: context)
-        action.id = UUID()
         action.due = due
         action.repeatDay = repeatDay
         action.title = title

@@ -11,7 +11,6 @@
 		6A650D8B2952C38C0017C69C /* CreateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A650D8A2952C38C0017C69C /* CreateAction.swift */; };
 		6A650D8D29534BA60017C69C /* ICON_SAMPLE_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A650D8C29534BA60017C69C /* ICON_SAMPLE_03.png */; };
 		6ADAAA1029458F3E0066E028 /* MandaProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA0F29458F3E0066E028 /* MandaProjectApp.swift */; };
-		6ADAAA1229458F3E0066E028 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA1129458F3E0066E028 /* DailyView.swift */; };
 		6ADAAA1429458F400066E028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ADAAA1329458F400066E028 /* Assets.xcassets */; };
 		6ADAAA1729458F400066E028 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ADAAA1629458F400066E028 /* Preview Assets.xcassets */; };
 		6ADAAA2129458F400066E028 /* MandaProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA2029458F400066E028 /* MandaProjectTests.swift */; };
@@ -49,7 +48,6 @@
 		6A650D8C29534BA60017C69C /* ICON_SAMPLE_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ICON_SAMPLE_03.png; sourceTree = "<group>"; };
 		6ADAAA0C29458F3E0066E028 /* MandaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ADAAA0F29458F3E0066E028 /* MandaProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandaProjectApp.swift; sourceTree = "<group>"; };
-		6ADAAA1129458F3E0066E028 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		6ADAAA1329458F400066E028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6ADAAA1629458F400066E028 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6ADAAA1C29458F400066E028 /* MandaProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MandaProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +151,6 @@
 		6ADAAA392945958E0066E028 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6ADAAA1129458F3E0066E028 /* DailyView.swift */,
 				6ADAAA422945B9B10066E028 /* CreateGoal.swift */,
 				6ADAAA462945CCC70066E028 /* SubGoalList.swift */,
 				6ADAAA482945FCCD0066E028 /* ActionList.swift */,
@@ -320,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ADAAA1229458F3E0066E028 /* DailyView.swift in Sources */,
 				6A650D8B2952C38C0017C69C /* CreateAction.swift in Sources */,
 				6ADAAA4D29461D1A0066E028 /* EditAction.swift in Sources */,
 				6ADAAA472945CCC70066E028 /* SubGoalList.swift in Sources */,
@@ -417,6 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -471,6 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

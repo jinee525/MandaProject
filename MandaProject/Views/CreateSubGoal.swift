@@ -69,6 +69,7 @@ struct CreateSubGoal: View {
                 maxHeight: .infinity
             )
             .padding([.leading, .trailing], 20.0)
+            .padding(.bottom, 20.0)
             .onAppear {
                 focusField = .title
             }

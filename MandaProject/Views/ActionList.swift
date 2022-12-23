@@ -87,6 +87,7 @@ struct ActionList: View {
                 maxHeight: .infinity
             )
             .padding(.horizontal, 20.0)
+            .padding(.bottom, 20.0)
         }
         
     }

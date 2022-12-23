@@ -24,7 +24,7 @@ struct CreateGoal: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
-                Text("목표 설정하기")
+                Text("최종 목표")
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
@@ -63,6 +63,7 @@ struct CreateGoal: View {
                 maxHeight: .infinity
             )
             .padding([.leading, .trailing], 20.0)
+            .padding(.bottom, 20.0)
             .onAppear {
                 focusField = .title
             }

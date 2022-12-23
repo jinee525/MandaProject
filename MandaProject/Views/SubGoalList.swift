@@ -9,6 +9,8 @@ import SwiftUI
 import CoreData
 
 struct SubGoalList: View {
+    @Environment(\.dismiss) var dismiss
+
     @Environment(\.managedObjectContext) var managedObjContext
     @FetchRequest(sortDescriptors: []) var subGoal: FetchedResults<SubGoal>
     
@@ -17,7 +19,7 @@ struct SubGoalList: View {
         
         NavigationView {
             VStack(spacing: 20.0) {
-                Text("세부 목표 리스트")
+                Text("세부 목표")
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
@@ -49,6 +51,16 @@ struct SubGoalList: View {
                 Spacer()
                 
                 HStack() {
+                    Button(action: {dismiss()}, label: {
+                        Text("돌아가기")
+                            .foregroundColor(Color.white)
+                            .frame(maxWidth: .infinity)
+                    })
+                    .padding(0.0)
+                    .frame(width: 120.0, height: 40.0)
+                    .background(Color(.systemGray3))
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    
                     NavigationLink {
                         CreateSubGoal().navigationBarHidden(true)
                     } label: {
@@ -66,6 +78,7 @@ struct SubGoalList: View {
                 maxHeight: .infinity
             )
             .padding(.horizontal, 20.0)
+            .padding(.bottom, 20.0)
         }
     }
 }
