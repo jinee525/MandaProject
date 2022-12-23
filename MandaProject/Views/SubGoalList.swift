@@ -70,15 +70,6 @@ struct SubGoalList: View {
     }
 }
 
-class SubGoalItem: Identifiable {
-    var id = UUID()
-    var title: String
-    
-    
-    init(title: String) {
-        self.title = title
-    }
-}
 
 struct SubGoalList_Previews: PreviewProvider {
     static var previews: some View {

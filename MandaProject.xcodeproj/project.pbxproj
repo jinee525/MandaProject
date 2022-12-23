@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6A650D89294F2C4B0017C69C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A650D88294F2C4B0017C69C /* DataController.swift */; };
 		6A650D8B2952C38C0017C69C /* CreateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A650D8A2952C38C0017C69C /* CreateAction.swift */; };
+		6A650D8D29534BA60017C69C /* ICON_SAMPLE_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A650D8C29534BA60017C69C /* ICON_SAMPLE_03.png */; };
 		6ADAAA1029458F3E0066E028 /* MandaProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA0F29458F3E0066E028 /* MandaProjectApp.swift */; };
 		6ADAAA1229458F3E0066E028 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADAAA1129458F3E0066E028 /* DailyView.swift */; };
 		6ADAAA1429458F400066E028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ADAAA1329458F400066E028 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		6A650D88294F2C4B0017C69C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		6A650D8A2952C38C0017C69C /* CreateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAction.swift; sourceTree = "<group>"; };
+		6A650D8C29534BA60017C69C /* ICON_SAMPLE_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ICON_SAMPLE_03.png; sourceTree = "<group>"; };
 		6ADAAA0C29458F3E0066E028 /* MandaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ADAAA0F29458F3E0066E028 /* MandaProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandaProjectApp.swift; sourceTree = "<group>"; };
 		6ADAAA1129458F3E0066E028 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		6ADAAA3A29459A310066E028 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A650D8C29534BA60017C69C /* ICON_SAMPLE_03.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A650D8D29534BA60017C69C /* ICON_SAMPLE_03.png in Resources */,
 				6ADAAA1729458F400066E028 /* Preview Assets.xcassets in Resources */,
 				6ADAAA1429458F400066E028 /* Assets.xcassets in Resources */,
 			);

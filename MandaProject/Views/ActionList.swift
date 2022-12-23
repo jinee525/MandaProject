@@ -12,9 +12,18 @@ import CoreData
 
 struct ActionList: View {
     @Environment(\.dismiss) var dismiss
-    @FetchRequest(sortDescriptors: []) var action: FetchedResults<Action>
-        
-    var subGoal: FetchedResults<SubGoal>.Element
+       
+    var subGoal: SubGoal
+    @FetchRequest var action: FetchedResults<Action>
+
+    init(subGoal: SubGoal){
+        self.subGoal = subGoal
+        self._action = FetchRequest(
+            entity: Action.entity(),
+            sortDescriptors: [],
+            predicate:NSPredicate(format: "subGoal == %@", subGoal)
+        )
+    }
     
     var body: some View {
         NavigationView {
@@ -23,7 +32,6 @@ struct ActionList: View {
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
-                    
                 if action.count == 0 {
                     Text("할 일이 없어요!")
                 } else {
@@ -83,14 +91,6 @@ struct ActionList: View {
         
     }
     
-    class ActionItem: Identifiable {
-        var id = UUID()
-        var title: String
-        
-        
-        init(title: String) {
-            self.title = title
-        }
-    }
+    
 }
 

@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "ICON_SAMPLE_03.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
