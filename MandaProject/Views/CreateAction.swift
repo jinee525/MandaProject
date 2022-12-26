@@ -28,13 +28,13 @@ struct CreateAction: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
-                Text("반복 액션")
+                Text("세부 목표를 이루기 위한")
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
                 
                 VStack(spacing: 20.0){
-                    TextField("세부 목표 달성을 위한 액션을 적어주세요.", text: $title)
+                    TextField("액션을 적어주세요.", text: $title)
                         .padding(.all, 12.0)
                         .background(Color.white)
                         .foregroundColor(Color.black)

@@ -36,7 +36,9 @@ struct MainView: View {
                 if(goal.isEmpty){
                     Spacer()
                     
-                    Image("Icon")
+                    Image("Logo")
+                        .resizable()
+                        .frame(width: 80.0, height: 80.0)
                     
                     Spacer()
                     HStack() {
@@ -45,12 +47,10 @@ struct MainView: View {
                             CreateGoal().navigationBarHidden(true)
                         } label: {
                             Text("시작하기")
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color("MainColor"))
                                 .frame(maxWidth: .infinity)
                         }
                         .frame(width: 120.0, height: 40.0)
-                        .background(Color("MainColor"))
-                        .clipShape(RoundedRectangle(cornerRadius: 4))
                     }
                 } else {
                     Text("오늘 할 일")
@@ -66,6 +66,7 @@ struct MainView: View {
                                 ForEach(action) { action in
                                     if(action.repeatDay!.compactMap{$0.wholeNumberValue}[todayDayIndex] == 1) {
                                         Text(action.title!)
+                                            .frame(maxWidth: .infinity)
                                     }
                                 }
                             }.padding(.all, 18.0)
@@ -82,7 +83,7 @@ struct MainView: View {
                         NavigationLink {
                             SubGoalList().navigationBarHidden(true)
                         } label: {
-                            Image("Icon")
+                            Image("Logo")
                                 .resizable()
                                 .frame(width: 40.0, height: 40.0)
                         }

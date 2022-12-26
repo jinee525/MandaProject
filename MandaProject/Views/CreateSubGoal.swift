@@ -12,7 +12,7 @@ struct CreateSubGoal: View {
     @Environment(\.managedObjectContext) var managedObjContext
 
     @State var title: String = ""
-
+    
     // for control field text focuesd
     enum Field: Hashable {
       case title
@@ -22,14 +22,14 @@ struct CreateSubGoal: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20.0) {
-                Text("세부 목표 만들기")
+                Text("목표를 이루기 위한")
                     .font(.title2)
                     .foregroundColor(Color.black)
                     .padding(.top, 60.0)
                 
                 
                 VStack(spacing: 20.0){
-                    TextField("목표 달성을 위한 세부 목표를 적어주세요.", text: $title)
+                    TextField("세부 목표를 적어주세요.", text: $title)
                         .padding(.all, 12.0)
                         .background(Color.white)
                         .foregroundColor(Color.black)
