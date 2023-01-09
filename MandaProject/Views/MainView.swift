@@ -36,7 +36,7 @@ struct MainView: View {
                 if(goal.isEmpty){
                     Spacer()
                     
-                    Image("Logo")
+                    Image("Logo_2023_image")
                         .resizable()
                         .frame(width: 80.0, height: 80.0)
                     
@@ -47,19 +47,24 @@ struct MainView: View {
                             CreateGoal().navigationBarHidden(true)
                         } label: {
                             Text("시작하기")
-                                .foregroundColor(Color("MainColor"))
+                                .foregroundColor(Color(.systemGray))
                                 .frame(maxWidth: .infinity)
                         }
                         .frame(width: 120.0, height: 40.0)
                     }
                 } else {
+                    Label("\(goal[0].title!)",systemImage: "flag")
+                        .padding(.top, 60.0)
+                        .foregroundColor(Color("VivaMagenta"))
+                    
                     Text("오늘 할 일")
                         .font(.title2)
                         .foregroundColor(Color.black)
-                        .padding(.top, 60.0)
+                        .padding(.top, 10.0)
                     
                     if action.count == 0 {
                         Text("할 일이 없어요!")
+                            .foregroundColor(Color(.systemGray))
                     } else {
                         ScrollView{
                             VStack(spacing: 20.0){
@@ -67,23 +72,25 @@ struct MainView: View {
                                     if(action.repeatDay!.compactMap{$0.wholeNumberValue}[todayDayIndex] == 1) {
                                         Text(action.title!)
                                             .frame(maxWidth: .infinity)
+                                            .padding(.all, 12.0)
+                                            .background(Color(.systemGray6))
+                                            .foregroundColor(Color.black)
+                                            .clipShape(RoundedRectangle(cornerRadius: 4))
                                     }
                                 }
-                            }.padding(.all, 18.0)
-                                .clipShape(RoundedRectangle(cornerRadius: 4))
-                                .background(Color(.systemGray6))
+                            }
                         }
                         .frame(height:500)
                     }
                     
                     Spacer()
-                    
+
                     HStack() {
                         
                         NavigationLink {
                             SubGoalList().navigationBarHidden(true)
                         } label: {
-                            Image("Logo")
+                            Image("Logo_2023_image")
                                 .resizable()
                                 .frame(width: 40.0, height: 40.0)
                         }

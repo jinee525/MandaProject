@@ -53,7 +53,7 @@ struct CreateGoal: View {
                             .frame(maxWidth: .infinity)
                         } )
                     .frame(width: 120.0, height: 40.0)
-                    .background(Color("MainColor"))
+                    .background(Color("VivaMagenta"))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                     
                 }

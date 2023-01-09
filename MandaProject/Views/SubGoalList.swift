@@ -25,6 +25,7 @@ struct SubGoalList: View {
                     .padding(.top, 60.0)
                 if subGoal.count == 0 {
                     Text("세부 목표가 없어요!")
+                        .foregroundColor(Color(.systemGray))
                 } else {
                     ScrollView{
                         VStack(spacing: 20.0){
@@ -36,14 +37,12 @@ struct SubGoalList: View {
                                     Text(subGoal.title!)
                                         .frame(maxWidth: .infinity)
                                         .padding(.all, 12.0)
-                                        .background(Color.white)
+                                        .background(Color(.systemGray6))
                                         .foregroundColor(Color.black)
                                         .clipShape(RoundedRectangle(cornerRadius: 4))
                                 }
                             }
-                        }.padding(.all, 18.0)
-                            .clipShape(RoundedRectangle(cornerRadius: 4))
-                            .background(Color(.systemGray6))
+                        }
                     }
                     .frame(height:500)
                 }
@@ -69,7 +68,7 @@ struct SubGoalList: View {
                             .frame(maxWidth: .infinity)
                     }
                     .frame(width: 120.0, height: 40.0)
-                    .background(Color("MainColor"))
+                    .background(Color("VivaMagenta"))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
             }

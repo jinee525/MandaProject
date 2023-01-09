@@ -45,7 +45,7 @@ struct CreateAction: View {
                             if selectedDates[id] == 1 {
                                 Button(action: {selectedDates[id] = 0 }, label:{Text(dates[id])})
                                     .frame(width: 36.0, height: 36.0)
-                                    .background(Color("MainColor"))
+                                    .background(Color("VivaMagenta"))
                                     .clipShape(Circle())
                                     .foregroundColor(Color.white)
                             } else {
@@ -87,7 +87,7 @@ struct CreateAction: View {
                     }
                     .padding(0.0)
                     .frame(width: 120.0, height: 40.0)
-                    .background(Color("MainColor"))
+                    .background(Color("VivaMagenta"))
                     .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
             }
